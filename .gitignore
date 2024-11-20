@@ -1,0 +1,58 @@
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python Files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.swp
+
+# Virtual Environments
+venv/
+env/
+
+# Dependecies
+node_modules/
+.bower_components/
+*.egg-info/
+
+# Docker
+*.pid
+*.log
+.env
+docker-compose.override.yml
+
+# IDEs/Editors
+.vscode/
+.idea/
+*.suo
+*.user
+*.workspace
+
+# Build- and Output Files
+build/
+dist/
+*.exe
+*.dll
+*.out
+*.class
+
+# Test Coverage
+coverage/
+*.lcov
+
+# Config Files
+*.bak
+*.tmp
+*.swp
+
+# Other Temp Files
+*.lock
