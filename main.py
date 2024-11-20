@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask_cors import CORS
 
 try:
     # checks if you have access to RPi.GPIO, which is available inside Raspberry PI
@@ -10,6 +11,7 @@ except:
 
 # Init Flask App
 app = Flask(__name__)
+CORS(app)
 
 # GPIO Setup
 LED_PIN = 18
