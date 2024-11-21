@@ -1,5 +1,5 @@
 :root {
-    --width: 60px;
+    --width: 50px;
     --padding: 7px;
     --height: calc(var(--width) / 2);
 }
@@ -12,7 +12,7 @@
 
 .switch-wrap {
     cursor: pointer;
-    background: #15273b;
+    background: var(--secondary-button-bg);
     padding: var(--padding);
     width: var(--width);
     height: var(--height);
@@ -37,7 +37,7 @@
   .switch::after {
     content: '';
     border-radius: 50%;
-    background: #ccc;
+    background: var(--secondary-button-text);
     grid-column: 2;
     transition: background 0.2s;
   }
@@ -47,5 +47,5 @@
   }
   
   .switch-wrap input:checked + .switch::after {
-    background-color: #52cf71;
+    background-color: var(--secondary-button-text);
   }
