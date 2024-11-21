@@ -16,7 +16,7 @@
     padding: var(--padding);
     width: var(--width);
     height: var(--height);
-    border-radius: calc(var(--height) / 2);
+    border-radius: var(--height);
     position: relative;
   }
   

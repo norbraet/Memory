@@ -4,6 +4,7 @@ import api from '../../services/api'
 import Button from '../../components/Button/Button'
 import Header from '../../components/Header/Header'
 import ThemeToggle from '../../components/ThemeToggle/ThemeToggle'
+import Footer from '../../components/Footer/Footer'
 
 function App() {
 
@@ -32,9 +33,7 @@ function App() {
         <Button onClick={turnOn} label="LED An" />
       </div>
 
-      <footer>
-        <p>Status: {status}</p>
-      </footer>
+      <Footer status={status}/>
     </div>
   )
 }
