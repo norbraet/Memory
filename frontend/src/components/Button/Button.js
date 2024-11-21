@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import './Button.css'
 
 function Button({ onClick, label }) {
@@ -6,7 +6,7 @@ function Button({ onClick, label }) {
     <button className='btn' onClick={onClick}>
       {label}
     </button>
-  );
+  )
 }
 
-export default Button;
+export default Button

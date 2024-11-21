@@ -2,6 +2,8 @@ import './App.css'
 import React, { useState } from 'react'
 import api from '../../services/api'
 import Button from '../../components/Button/Button'
+import Header from '../../components/Header/Header'
+import ThemeToggle from '../../components/ThemeToggle/ThemeToggle'
 
 function App() {
 
@@ -11,24 +13,30 @@ function App() {
         api.get('/on')
           .then(response => setStatus(response.data.status))
           .catch(error => console.log(error))
-    };
+    }
 
     const turnOff = () => {
           api.get('/off')
           .then(response => setStatus(response.data.status))
           .catch(error => console.log(error))
-    };
+    }
 
   return (
     <div className="App">
-      <h1>Raspberry PI Control UI</h1>
+      <Header>
+        <h1>Raspberry PI Control UI</h1>
+        <ThemeToggle label="Toggle Theme"/>
+      </Header>
       <div className="container">
         <Button onClick={turnOff} label="LED Aus" />
         <Button onClick={turnOn} label="LED An" />
       </div>
-      <p>Status: {status}</p>
+
+      <footer>
+        <p>Status: {status}</p>
+      </footer>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

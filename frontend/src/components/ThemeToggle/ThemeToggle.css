@@ -4,6 +4,12 @@
     --height: calc(var(--width) / 2);
 }
 
+.themeToggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .switch-wrap {
     cursor: pointer;
     background: #15273b;
