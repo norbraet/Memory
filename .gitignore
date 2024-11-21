@@ -23,6 +23,8 @@ env/
 node_modules/
 .bower_components/
 *.egg-info/
+/.pnp
+.pnp.js
 
 # Docker
 *.pid
@@ -56,3 +58,10 @@ coverage/
 
 # Other Temp Files
 *.lock
+.history
+
+
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

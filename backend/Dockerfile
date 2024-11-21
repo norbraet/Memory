@@ -10,10 +10,10 @@ RUN apt-get update && apt-get install -y \
 
 # Install Libraries
 RUN pip install --upgrade pip
-RUN pip install flask RPi.GPIO
+RUN pip install flask flask-cors RPi.GPIO
 
 WORKDIR /app
 
-COPY . /app
+COPY src/ /app/src
 
-CMD ["python", "main.py"] 
+CMD ["python", "src/main.py"] 

@@ -1,0 +1,51 @@
+:root {
+    --width: 50px;
+    --padding: 7px;
+    --height: calc(var(--width) / 2);
+}
+
+.themeToggleContainer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.switch-wrap {
+    cursor: pointer;
+    background: var(--secondary-button-bg);
+    padding: var(--padding);
+    width: var(--width);
+    height: var(--height);
+    border-radius: var(--height);
+    position: relative;
+  }
+  
+  .switch-wrap input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .switch {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 0fr 1fr 1fr;
+    transition: 0.2s;
+  }
+  
+  .switch::after {
+    content: '';
+    border-radius: 50%;
+    background: var(--secondary-button-text);
+    grid-column: 2;
+    transition: background 0.2s;
+  }
+  
+  .switch-wrap input:checked + .switch {
+    grid-template-columns: 1fr 1fr 0fr;
+  }
+  
+  .switch-wrap input:checked + .switch::after {
+    background-color: var(--secondary-button-text);
+  }

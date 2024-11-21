@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS
 
 try:
     # checks if you have access to RPi.GPIO, which is available inside Raspberry PI
@@ -10,6 +11,7 @@ except:
 
 # Init Flask App
 app = Flask(__name__)
+CORS(app)
 
 # GPIO Setup
 LED_PIN = 18
@@ -24,8 +26,6 @@ def index():
 
     return '''
         <h1>Willkommen zur Raspberry PI Steuerung</h1>
-        <button onclick="fetch('/on')">LED An</button>
-        <button onclick="fetch('/off')">LED Aus</button>
     '''
 
 @app.route('/on')
@@ -36,7 +36,7 @@ def led_on():
 
     GPIO.output(LED_PIN, GPIO.HIGH)
     
-    return "LED ist jetzt an"
+    return jsonify({"status": "LED ist jetzt an"})
 
 @app.route('/off')
 def led_off():
@@ -46,7 +46,7 @@ def led_off():
 
     GPIO.output(LED_PIN, GPIO.LOW)
 
-    return "LED ist jetzt aus"
+    return jsonify({"status": "LED ist jetzt aus"})
 
 @app.teardown_appcontext
 def cleanup(exception=None):

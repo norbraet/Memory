@@ -1,11 +1,37 @@
-version: '3'
 services:
-  app:
-    build: .
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
     environment:
       - LOG_LEVEL=Info
     volumes:
-      - .:/app
-    restart: always
+      - ./backend:/app
+    restart: 
+      always
+    env_file:
+      - .env
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        NODE_VERSION: "${NODE_VERSION}"
+        FRONTEND_PORT: "${FRONTEND_PORT}"
+    ports:
+      - "${FRONTEND_PORT}:${FRONTEND_PORT}"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    env_file:
+      - .env
+    depends_on:
+      - backend
+    restart: 
+      always
