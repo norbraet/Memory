@@ -1,20 +1,19 @@
-# Frontend Dockerfile
 ARG NODE_VERSION
+ARG FRONTEND_PORT
+
 FROM node:${NODE_VERSION}
 
 WORKDIR /app
 
-# Install dependencies
 COPY package.json package-lock.json ./
-RUN npm install
 
-# Copy source files
-# COPY . ./
+RUN npm ci
+
 COPY src/ ./src/
 COPY public/ ./public/
 
-# Build the React app
+EXPOSE ${FRONTEND_PORT}
+
 RUN npm run build
 
-# Serve the React app
 CMD ["npm", "start"]

@@ -9,7 +9,8 @@ services:
       - LOG_LEVEL=Info
     volumes:
       - ./backend:/app
-    restart: always
+    restart: 
+      always
     env_file:
       - .env
 
@@ -19,11 +20,18 @@ services:
       dockerfile: Dockerfile
       args:
         NODE_VERSION: "${NODE_VERSION}"
+        FRONTEND_PORT: "${FRONTEND_PORT}"
     ports:
       - "${FRONTEND_PORT}:${FRONTEND_PORT}"
     volumes:
       - ./frontend:/app
+      - /app/node_modules
     environment:
       - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
     env_file:
       - .env
+    depends_on:
+      - backend
+    restart: 
+      always
