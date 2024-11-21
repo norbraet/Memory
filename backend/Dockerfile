@@ -14,6 +14,6 @@ RUN pip install flask flask-cors RPi.GPIO
 
 WORKDIR /app
 
-COPY . /app
+COPY src/ /app/src
 
-CMD ["python", "main.py"] 
+CMD ["python", "src/main.py"] 
