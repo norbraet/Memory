@@ -5,7 +5,9 @@ import './Footer.css'
 const Footer = ({ status }) => {
   return (
     <footer>
-      <p>Status: {status}</p>
+      <div className="container-centar">
+        <p>Status: {status}</p>
+      </div>
     </footer>
   )
 }

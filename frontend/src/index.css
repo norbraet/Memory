@@ -17,6 +17,8 @@
   --success-color: #018786;
   --warning-color: #FFB300;
   --error-color: #D32F2F;
+
+  --page-padding: 1.5em;
 }
 
 /* Dark Mode Styles */
@@ -65,12 +67,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-main {
-  width: 100%;
-  max-width: 1300px;
-  margin-inline: auto;
-  min-height: 100vh;
-}
 
 button.primary {
   background-color: var(--primary-button-bg);
@@ -99,9 +95,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.container {
-  background-color: var(--container-bg);
-  padding: 20px;
+.container-center {
+  max-width: 1400px;
+  margin-inline: auto;
+  padding: var(--page-padding);
 }
 
 .success {
