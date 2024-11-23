@@ -6,6 +6,7 @@
     max-height: 35vh;
 }
 
+
 .log-area::-webkit-scrollbar {
     width: 8px;
 }
@@ -23,6 +24,10 @@
     display: flex;
     column-gap: 15px;
 }
+
+.log-area-item:nth-last-child(2) .log-area-line {
+    width: 0;
+  }
 
 .log-area-logo-container {
     display: flex;
