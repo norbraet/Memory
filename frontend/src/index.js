@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import App from './pages/App/App'
+import Dashboard from './pages/Dashboard/Dashboard'
 import Header from './components/Header/Header'
 import ThemeToggle from './components/ThemeToggle/ThemeToggle'
 import Footer from './components/Footer/Footer'
@@ -15,8 +15,8 @@ root.render(
           <p className="header-heading">Raspberry PI Control UI</p>
           <ThemeToggle label="Toggle Theme"/>
       </Header>
-      
-      <App />
+
+      <Dashboard />
 
       <Footer />
     </StatusProvider>

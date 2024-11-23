@@ -1,4 +1,4 @@
-import './App.css'
+import './Dashboard.css'
 import React, { useContext } from 'react'
 import api from '../../services/api'
 import Button from '../../components/Button/Button'
@@ -22,6 +22,7 @@ function App() {
   return (
     <main>
       <div className="container-center">
+        <h1>Dashboard</h1>
         <Button onClick={turnOff} label="LED Aus" />
         <Button onClick={turnOn} label="LED An" />
       </div>
