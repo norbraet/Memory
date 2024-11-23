@@ -19,6 +19,8 @@
   --error-color: #D32F2F;
 
   --page-padding: 1.5em;
+
+  --scrollbar-color: #bdbdbd;
 }
 
 /* Dark Mode Styles */
@@ -41,6 +43,8 @@ html[data-theme='dark'] {
   --success-color: #03DAC5;
   --warning-color: #FFB300;
   --error-color: #CF6679;
+
+  --scrollbar-color: var(--secondary-button-bg);
 }
 
 html {

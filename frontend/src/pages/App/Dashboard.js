@@ -1,24 +1,21 @@
-import './Dashboard.css'
+import './App.css'
 import React, { useContext } from 'react'
 import api from '../../services/api'
 import Button from '../../components/Button/Button'
-import LogContext from '../../context/LogContext'
-import SystemOverview from '../../features/SystemOverview/SystemOverview'
-import LogArea from '../../features/LogArea/LogArea'
-
+import StatusContext from '../../context/LogContext'
 
 function App() {
-  const { addLog } = useContext(LogContext)
+  const { setStatus } = useContext(StatusContext)
 
     const turnOn = () => {
         api.get('/on')
-          .then(response => addLog(response.data.status))
+          .then(response => setStatus(response.data.status))
           .catch(error => console.log(error))
     }
 
     const turnOff = () => {
           api.get('/off')
-          .then(response => addLog(response.data.status))
+          .then(response => setStatus(response.data.status))
           .catch(error => console.log(error))
     }
 
@@ -26,11 +23,8 @@ function App() {
     <main>
       <div className="container-center">
         <h1>Dashboard</h1>
-
-        {/* <SystemOverview headingLevel='h2' /> */}
         <Button onClick={turnOff} label="LED Aus" />
         <Button onClick={turnOn} label="LED An" />
-        <LogArea />
       </div>
     </main>
   )

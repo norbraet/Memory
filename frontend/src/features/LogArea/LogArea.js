@@ -1,16 +1,34 @@
 
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useRef} from 'react'
 import './LogArea.css'
-import StatusContext from '../../context/StatusContext'
+import LogContext from '../../context/LogContext'
 
-const Footer = () => {
-  const { status } = useContext(StatusContext)
+const LogArea = ({ headingLevel: Heading = "h2", heading = "Logs" }) => {
+  const { logs } = useContext(LogContext)
+  const logEndRef = useRef(null)
+
+  useEffect(() => {
+    logEndRef.current?.scrollIntoView({ behaviour: 'smooth'})
+  }, [logs])
 
   return (
-    <div className="log-area container-centar">
-      <p>Status: {status}</p>
+    <div>
+      <Heading>
+        { heading }
+      </Heading>
+      <div className="log-area container-centar">
+        {logs.map((log, index) => {
+          return (
+            <div className="log-area-item" key={index}>
+              <p className='log-area-message'>{log.message}</p>
+              <p className='log-area-time'>{log.timestamp}</p>
+            </div>
+          )
+        })}
+        <div ref={logEndRef} />
+      </div>
     </div>
   )
 }
 
-export default Footer
+export default LogArea

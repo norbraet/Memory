@@ -12,10 +12,7 @@ RUN apt-get update && apt-get install -y \
 RUN pip install --upgrade pip
 RUN pip install flask \ 
     flask-cors \ 
-    RPi.GPIO \ 
-    psutil \
-    flask-socketio \
-    eventlet
+    RPi.GPIO
 
 WORKDIR /app
 

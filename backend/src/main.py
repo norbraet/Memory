@@ -1,7 +1,6 @@
 from flask import Flask, jsonify
-from flask_socketio import SocketIO, emit
 from flask_cors import CORS
-import psutil
+
 
 try:
     # checks if you have access to RPi.GPIO, which is available inside Raspberry PI
@@ -15,29 +14,11 @@ except:
 app = Flask(__name__)
 CORS(app)
 
-# Init Flask SocketIO
-socketio = SocketIO(app, cors_allowed_origins="*")
 
 # GPIO Setup
 LED_PIN = 18
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(LED_PIN, GPIO.OUT)
-
-def get_system_stats():
-    cpu_usage = psutil.cpu_percent(interval=5)
-    ram_total = psutil.virtual_memory().total / 1000000000
-    ram_available = psutil.virtual_memory().available / 1000000000
-    disk_total = psutil.disk_usage('/').total / 1000000000
-    disk_free = psutil.disk_usage('/').free / 1000000000
-
-    disk = f"{round(disk_free, 1)} GB / {round(disk_total, 1)} GB"
-    ram = f"{round(ram_available, 1)} GB / {round(ram_total, 1)} GB"
-    cpu = f"{cpu_usage} %"
-    return {
-        "CPU Usage": cpu,
-        "RAM": ram,
-        "Disk": disk,
-    }
 
 
 @app.route('/')
@@ -74,21 +55,6 @@ def led_off():
 def cleanup(exception=None):
     GPIO.cleanup()
 
-@socketio.on('connect')
-def handle_connect():
-    print("Client connected")
-    emit('status_update', {'status': 'Connected to WebSocket Server'})
-
-    def send_system_stats():
-        while True:
-            socketio.emit("system_stats", get_system_stats())
-            socketio.sleep(5)
-    
-    socketio.start_background_task(send_system_stats)
-
-@socketio.on('disconnected')
-def handle_disconnect():
-    print("Client disconnected")
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True, use_reloader=False)
+    app.run(host='0.0.0.0', port=5000, debug=True, use_reloader=False)
