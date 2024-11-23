@@ -4,7 +4,6 @@ import './index.css'
 import Dashboard from './pages/Dashboard/Dashboard'
 import Header from './components/Header/Header'
 import ThemeToggle from './components/ThemeToggle/ThemeToggle'
-import Footer from './components/Footer/Footer'
 import { StatusProvider } from './context/StatusContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,7 +17,6 @@ root.render(
 
       <Dashboard />
 
-      <Footer />
     </StatusProvider>
   </React.StrictMode>
 )
