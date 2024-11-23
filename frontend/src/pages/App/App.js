@@ -1,12 +1,11 @@
 import './App.css'
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import api from '../../services/api'
 import Button from '../../components/Button/Button'
-import Footer from '../../components/Footer/Footer'
+import StatusContext from '../../context/StatusContext'
 
 function App() {
-
-  const [status, setStatus] = useState("")
+  const { setStatus } = useContext(StatusContext)
 
     const turnOn = () => {
         api.get('/on')
@@ -26,8 +25,6 @@ function App() {
         <Button onClick={turnOff} label="LED Aus" />
         <Button onClick={turnOn} label="LED An" />
       </div>
-
-      <Footer status={status}/>
     </main>
   )
 }

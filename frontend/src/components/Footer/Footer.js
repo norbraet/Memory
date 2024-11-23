@@ -1,8 +1,11 @@
 
-import React from 'react'
+import React, { useContext } from 'react'
 import './Footer.css'
+import StatusContext from '../../context/StatusContext'
 
-const Footer = ({ status }) => {
+const Footer = () => {
+  const { status } = useContext(StatusContext)
+
   return (
     <footer>
       <div className="container-centar">
