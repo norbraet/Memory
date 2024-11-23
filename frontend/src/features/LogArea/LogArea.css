@@ -1,4 +1,7 @@
 .log-area {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
     overflow-y: auto;
     max-height: 35vh;
 }
@@ -16,11 +19,39 @@
     background: #555;
 }
 
+.log-area-item {
+    display: flex;
+    column-gap: 15px;
+}
+
+.log-area-logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.log-area-logo {
+    height: 50px;
+    width: auto;
+    fill: var(--primary-text);
+}
+
+.log-area-line {
+    width: 2px;
+    height: 100%;
+    background-color: var(--secondary-text);
+}
+
 .log-area-message {
+    grid-column: 2;
+    grid-row: 1;
     margin: 0;
 }
 
 .log-area-time {
+    grid-column: 2;
+    grid-row: 2;
     color: var(--secondary-text);
     margin: 0;
 }

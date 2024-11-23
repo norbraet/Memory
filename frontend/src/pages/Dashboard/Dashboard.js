@@ -12,13 +12,13 @@ function App() {
 
     const turnOn = () => {
         api.get('/on')
-          .then(response => addLog(response.data.status))
+          .then(response => addLog(response.data))
           .catch(error => console.log(error))
     }
 
     const turnOff = () => {
           api.get('/off')
-          .then(response => addLog(response.data.status))
+          .then(response => addLog(response.data))
           .catch(error => console.log(error))
     }
 

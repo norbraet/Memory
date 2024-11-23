@@ -13,7 +13,7 @@ export function LogProvider({ children }) {
             hour12: false
         })
         
-        setLogs((prevLogs) => [...prevLogs, { message: newLog, timestamp: timestamp }])
+        setLogs((prevLogs) => [...prevLogs, { message: newLog.status, timestamp: timestamp, type: newLog.type }])
     }  
 
     return (
