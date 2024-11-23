@@ -21,16 +21,16 @@ const Toggle = ({ label }) => {
   }
   
   return (
-    <label className="themeToggleContainer" htmlFor="something">
-        <span>{ label }</span>
+    <label className="theme-toggle-container" htmlFor="something">
         <div className="switch-wrap">
             <input 
               type="checkbox" 
               id="something" 
               checked={isDarkMode}
-              onClick={toggleTheme} />
+              onChange={toggleTheme} />
             <div className="switch"></div>
         </div>
+        <span>{ label }</span>
     </label>
   )
 }

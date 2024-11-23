@@ -4,10 +4,12 @@
     --height: calc(var(--width) / 2);
 }
 
-.themeToggleContainer {
+.theme-toggle-container {
   display: flex;
   align-items: center;
   gap: 14px;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
 }
 
 .switch-wrap {
