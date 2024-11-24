@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './ThemeToggle.css'
 
 const Toggle = ({ label }) => {
   const [isDarkMode, setIsDarkMode] = useState(false)
+  const id = useRef(`slider-${Math.random().toString(36).substring(2,9)}`).current
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme')
@@ -21,16 +22,16 @@ const Toggle = ({ label }) => {
   }
   
   return (
-    <label className="themeToggleContainer" htmlFor="something">
-        <span>{ label }</span>
+    <label className="theme-toggle-container" htmlFor={id}>
         <div className="switch-wrap">
             <input 
               type="checkbox" 
-              id="something" 
+              id={id} 
               checked={isDarkMode}
-              onClick={toggleTheme} />
+              onChange={toggleTheme} />
             <div className="switch"></div>
         </div>
+        <span>{ label }</span>
     </label>
   )
 }

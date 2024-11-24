@@ -1,0 +1,119 @@
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-md);
+    width: var(--size-full);
+
+}
+
+.slider-name {
+    width: var(--size-third);
+    flex-shrink: 0;
+}
+
+.slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: var(--size-full);
+    height: var(--slider-height);
+    background: var(--slider-track-color);
+    border-radius: var(--slider-height);
+    outline: none;
+    position: relative;
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.slider::-webkit-slider-runnable-track {
+    width: var(--size-full);
+    height: var(--slider-height);
+    background: linear-gradient(
+        to right,
+        var(--slider-progress-color) calc(var(--value, 50) * 1%),
+        var(--slider-track-color) calc(var(--value, 50) * 1%)
+    );
+    border-radius: var(--slider-height);
+}
+
+.slider::-webkit-slider-runnable-track:hover {
+    background: linear-gradient(
+        to right,
+        var(--slider-track-hover) calc(var(--value, 50) * 1%),
+        var(--slider-track-color) calc(var(--value, 50) * 1%)
+    );
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--slider-thumb-size);
+    height: var(--slider-thumb-size);
+    border-radius: var(--radius-full);
+    background: var(--slider-thumb-color);
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    margin-top: calc((var(--slider-height) - var(--slider-thumb-size)) / 2); /* Center thumb */
+    transition: transform 0.15s ease;
+}
+
+.slider::-webkit-slider-thumb:active {
+    transform: scale(1.1);
+}
+
+/* For Firefox */
+.slider::-moz-range-track {
+    width: var(--size-full);
+    height: var(--slider-height);
+    background: var(--slider-track-color);
+    border-radius: var(--slider-height);
+}
+
+.slider::-moz-range-progress {
+    background: var(--slider-progress-color);
+    height: var(--slider-height);
+    border-radius: var(--slider-height);
+}
+
+.slider::-moz-range-thumb {
+    width: var(--slider-thumb-size);
+    height: var(--slider-thumb-size);
+    border-radius: var(--radius-full);
+    background: var(--slider-thumb-color);
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+/* For Edge and fallback */
+.slider::-ms-track {
+    width: var(--size-full);
+    height: var(--slider-height);
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+.slider::-ms-fill-lower {
+    background: var(--slider-progress-color);
+    border-radius: var(--slider-height);
+}
+
+.slider::-ms-fill-upper {
+    background: var(--slider-track-color);
+    border-radius: var(--slider-height);
+}
+
+.slider::-ms-thumb {
+    width: var(--slider-thumb-size);
+    height: var(--slider-thumb-size);
+    border-radius: var(--radius-full);
+    background: var(--slider-thumb-color);
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+
+.slider-value {
+    font-weight: bold;
+}

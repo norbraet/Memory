@@ -1,0 +1,9 @@
+.system-overview-flex {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--padding-sm) 0;
+}
+
+.system-overview-flex > label {
+    color: var(--secondary-text)
+}

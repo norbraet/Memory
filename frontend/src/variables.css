@@ -1,0 +1,171 @@
+:root {
+    /* Base unit for spacing */
+    --spacing-0: 0;        /* 0px */
+    --spacing-xs: 0.25rem; /* 4px */
+    --spacing-sm: 0.5rem;  /* 8px */
+    --spacing-md: 1rem;    /* 16px */
+    --spacing-lg: 1.5rem;  /* 24px */
+    --spacing-xl: 2rem;    /* 32px */
+    --spacing-2xl: 3rem;   /* 48px */
+    --spacing-3xl: 4rem;   /* 64px */
+
+    /* Gap Sizes for Flexbox and Grid */
+    --gap-sm: var(--spacing-sm); 
+    --gap-md: var(--spacing-md); 
+    --gap-lg: var(--spacing-lg);
+    
+    /* Padding Sizes */
+    --padding-sm: var(--spacing-sm);
+    --padding-md: var(--spacing-md);
+    --padding-lg: var(--spacing-lg);
+    --padding-xl: var(--spacing-xl);
+    
+    /* Margin Sizes */
+    --margin-sm: var(--spacing-sm);
+    --margin-md: var(--spacing-md);
+    --margin-lg: var(--spacing-lg);
+    --margin-xl: var(--spacing-xl);
+
+    /* Border Radius Sizes */
+    --radius-none: 0;               /* No rounding */
+    --radius-sm: 0.125rem;          /* 2px - Slight rounding */
+    --radius-md: 0.25rem;           /* 4px - Moderate rounding */
+    --radius-lg: 0.5rem;            /* 8px - Noticeable rounding */
+    --radius-xl: 1rem;              /* 16px - Large rounding */
+    --radius-2xl: 2rem;             /* 32px - Extra large rounding */
+    --radius-full: 9999px;          /* Fully rounded (e.g., circles) */
+
+    /* Fixed Width/Height Sizes */
+    --size-none: 0;                  /* 0px */
+    --size-xs: 1rem;                 /* 16px - Extra small */
+    --size-sm: 2rem;                 /* 32px - Small */
+    --size-md: 4rem;                 /* 64px - Medium */
+    --size-lg: 8rem;                 /* 128px - Large */
+    --size-xl: 12rem;                /* 192px - Extra large */
+    --size-2xl: 16rem;               /* 256px - 2X large */
+
+    /* Relative Width/Height Sizes */
+    --size-full: 100%;               /* Full width/height */
+    --size-half: 50%;                /* Half width/height */
+    --size-third: 33.333%;           /* One-third */
+    --size-quarter: 25%;             /* One-fourth */
+
+    /* Viewport-based Sizes */
+    --size-screen-w: 100vw;          /* Full viewport width */
+    --size-screen-h: 100vh;          /* Full viewport height */
+    --size-screen--h-thrid: 33.333vh;
+
+    /* Common Layout Sizes */
+    --size-container-sm: 640px;      /* Small container width */
+    --size-container-md: 768px;      /* Medium container width */
+    --size-container-lg: 1024px;     /* Large container width */
+    --size-container-xl: 1280px;     /* Extra large container width */
+    --size-contaier-2xl: 1400px;
+
+
+      /* Basic Font Sizes */
+    --font-xs: 0.75rem;    /* 12px - Extra small */
+    --font-sm: 0.875rem;   /* 14px - Small */
+    --font-base: 1rem;     /* 16px - Base font size */
+    --font-md: 1.125rem;   /* 18px - Medium */
+    --font-lg: 1.25rem;    /* 20px - Large */
+    --font-xl: 1.5rem;     /* 24px - Extra large */
+    --font-2xl: 2rem;      /* 32px - 2X large */
+    --font-3xl: 3rem;      /* 48px - 3X large */
+    --font-4xl: 4rem;      /* 64px - 4X large */
+    --font-5xl: 5rem;      /* 80px - 5X large */
+
+    /* Responsive Font Sizes (for scaling text based on screen size) */
+    --font-screen-sm: 1rem;   /* 16px for small screens */
+    --font-screen-md: 1.125rem; /* 18px for medium screens */
+    --font-screen-lg: 1.25rem; /* 20px for large screens */
+    --font-screen-xl: 1.5rem;  /* 24px for extra large screens */
+
+    /* Line Heights (to complement font sizes) */
+    --line-height-xs: 1rem;
+    --line-height-sm: 1.25rem;
+    --line-height-base: 1.5rem;
+    --line-height-lg: 1.75rem;
+    --line-height-xl: 2rem;
+    
+    --background-body: #f5f5f5;
+    --primary-text: #333;
+    --secondary-text: #757575;
+
+    --primary-color: #61A0AF;
+
+    --primary-button-bg: var(--primary-color);
+    --primary-button-text: #FFFFFF;
+    --primary-button-hover: hsl(192, 33%, 33%);
+    --secondary-button-bg: #E0E0E0;
+    --secondary-button-text: #212121;
+    --secondary-button-hover: hsl(0, 0%, 85%);
+
+    --link-color: #6200EE;
+    --link-hover-color: #3700B3;
+
+    --container-bg: #e7e7e7;
+    --border-color: #BDBDBD;
+
+    --success-color: #2DD881;
+    --warning-color: #EAC435 ;
+    --error-color: #FB4D3D;
+
+    --page-padding: var(--padding-lg);
+
+    --scrollbar-color: var(--secondary-text);
+
+    --theme-toggle-bg: var(--slider-progress-color);
+    --theme-toggle-thumb: var(--background-body);
+    --theme-toggle-width: 50px;
+    --theme-toggle-padding: 7px;
+    --theme-toggle-height: calc(var(--theme-toggle-width) / 2);
+
+    --slider-height: 12px;
+    --slider-thumb-size: 20px;
+
+    --slider-track-color: #E0E0E0;
+    --slider-track-hover: hsl(192, 33%, 33%);
+    --slider-thumb-color: hsl(192, 100%, 47%);
+    --slider-thumb-hover: #3700B3;
+    --slider-thumb-active: #018786;
+    --slider-progress-color: var(--primary-color);
+
+    --shadow-light: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    --shadow-heavy: 0px 16px 32px rgba(0, 0, 0, 0.3);
+    --shadow-focus: 0px 0px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Dark Mode Styles */
+  html[data-theme='dark'] {
+    --background-body: #282c34;
+    --primary-text: #E0E0E0;
+    --secondary-text: #a1a1a1;
+  
+    /* --primary-color: #F5D491; */
+    --primary-color: hsl(297, 100%, 83%);
+
+    --primary-button-text: #212121;;
+    --primary-button-hover: hsl(297, 100%, 73%);
+    --secondary-button-bg: #444444;
+    --secondary-button-text: #E0E0E0;
+    --secondary-button-hover: hsl(220, 13%, 25%);
+    
+    --link-color: #BB86FC;
+    --link-hover-color: #6200EE;
+    
+    --container-bg: #1E1E1E;
+    --border-color: #333333;
+    
+    --success-color: #03DAC5;
+    --warning-color: #FFB300;
+    --error-color: #CF6679;
+  
+    --slider-track-color: #444444;
+    --slider-track-hover: #EFC3F5;
+    --slider-thumb-color: #BB86FC;
+    --slider-thumb-hover: hsl(297, 100%, 47%);
+    --slider-thumb-active: #03DAC5;
+    --slider-progress-color: #fba8ff;
+  }
