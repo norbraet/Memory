@@ -27,7 +27,7 @@ const SystemInput = ({ headingLevel: Heading = "h2", heading = "System Input" })
                 { heading }
             </Heading>
             <div className='system-input-slider'>
-                <Slider label='Colorfull' />
+                <Slider label='Colorful' />
                 <Slider label='Blurriness' />
                 <Slider label='Brightness' />
             </div>
