@@ -7,10 +7,13 @@ import {ReactComponent as WarningLogo} from '../../assets/warningLogo.svg'
 
 const LogArea = ({ headingLevel: Heading = "h2", heading = "Logs" }) => {
   const { logs } = useContext(LogContext)
-  const logEndRef = useRef(null)
+  const logAreaRef = useRef(null)
 
   useEffect(() => {
-    logEndRef.current?.scrollIntoView({ behaviour: 'smooth'})
+    if (logAreaRef.current) {
+      logAreaRef.current.scrollTop = logAreaRef.current.scrollHeight
+    }
+
   }, [logs])
 
   return (
@@ -19,7 +22,7 @@ const LogArea = ({ headingLevel: Heading = "h2", heading = "Logs" }) => {
           <Heading>
             { heading }
           </Heading>
-          <ol className="log-area">
+          <ol className="log-area" ref={logAreaRef}>
             {logs.map((log, index) => {
               const LogoComponent = log.type === 'warning' ? WarningLogo : InfoLogo
 
@@ -36,7 +39,6 @@ const LogArea = ({ headingLevel: Heading = "h2", heading = "Logs" }) => {
                 </li>
               )
             })}
-            <div ref={logEndRef} />
           </ol>
       </div>
     </section>

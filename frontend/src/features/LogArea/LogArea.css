@@ -28,7 +28,7 @@
     column-gap: var(--gap-md);
 }
 
-.log-area-item:nth-last-child(2) .log-area-line {
+.log-area-item:nth-last-child(1) .log-area-line {
     width: 0;
   }
 
