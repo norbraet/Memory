@@ -1,13 +1,13 @@
 .slider-container {
     display: flex;
     align-items: center;
-    gap: 12px;
-    width: 100%;
+    gap: var(--gap-md);
+    width: var(--size-full);
 
 }
 
 .slider-name {
-    width: 33%;
+    width: var(--size-third);
     flex-shrink: 0;
 }
 
@@ -15,7 +15,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 100%;
+    width: var(--size-full);
     height: var(--slider-height);
     background: var(--slider-track-color);
     border-radius: var(--slider-height);
@@ -25,7 +25,7 @@
 
 /* For Webkit browsers (Chrome, Safari, Edge) */
 .slider::-webkit-slider-runnable-track {
-    width: 100%;
+    width: var(--size-full);
     height: var(--slider-height);
     background: linear-gradient(
         to right,
@@ -48,7 +48,7 @@
     appearance: none;
     width: var(--slider-thumb-size);
     height: var(--slider-thumb-size);
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     background: var(--slider-thumb-color);
     cursor: pointer;
     position: relative;
@@ -63,7 +63,7 @@
 
 /* For Firefox */
 .slider::-moz-range-track {
-    width: 100%;
+    width: var(--size-full);
     height: var(--slider-height);
     background: var(--slider-track-color);
     border-radius: var(--slider-height);
@@ -78,7 +78,7 @@
 .slider::-moz-range-thumb {
     width: var(--slider-thumb-size);
     height: var(--slider-thumb-size);
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     background: var(--slider-thumb-color);
     cursor: pointer;
     position: relative;
@@ -87,7 +87,7 @@
 
 /* For Edge and fallback */
 .slider::-ms-track {
-    width: 100%;
+    width: var(--size-full);
     height: var(--slider-height);
     background: transparent;
     border-color: transparent;
@@ -107,7 +107,7 @@
 .slider::-ms-thumb {
     width: var(--slider-thumb-size);
     height: var(--slider-thumb-size);
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     background: var(--slider-thumb-color);
     cursor: pointer;
     position: relative;

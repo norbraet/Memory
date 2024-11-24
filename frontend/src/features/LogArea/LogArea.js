@@ -14,28 +14,30 @@ const LogArea = ({ headingLevel: Heading = "h2", heading = "Logs" }) => {
   }, [logs])
 
   return (
-    <section>
-      <Heading>
-        { heading }
-      </Heading>
-      <div className="log-area">
-        {logs.map((log, index) => {
-          const LogoComponent = log.type === 'warning' ? WarningLogo : InfoLogo
+    <section className='log-area-section'>
+      <div className='container-center'>
+          <Heading>
+            { heading }
+          </Heading>
+          <ol className="log-area">
+            {logs.map((log, index) => {
+              const LogoComponent = log.type === 'warning' ? WarningLogo : InfoLogo
 
-          return (
-            <div className="log-area-item" key={index}>
-              <div className="log-area-logo-container">
-                <LogoComponent className="log-area-logo" />
-                <div className="log-area-line" />
-              </div>
-              <div>
-                <p className="log-area-message">{log.message}</p>
-                <p className="log-area-time">{log.timestamp}</p>
-              </div>
-            </div>
-          )
-        })}
-        <div ref={logEndRef} />
+              return (
+                <li className="log-area-item" key={index}>
+                  <div className="log-area-logo-container">
+                    <LogoComponent className="log-area-logo" />
+                    <div className="log-area-line" />
+                  </div>
+                  <div>
+                    <p className="log-area-message">{log.message}</p>
+                    <p className="log-area-time">{log.timestamp}</p>
+                  </div>
+                </li>
+              )
+            })}
+            <div ref={logEndRef} />
+          </ol>
       </div>
     </section>
   )

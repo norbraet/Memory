@@ -1,7 +1,7 @@
 .system-overview-flex {
     display: flex;
     justify-content: space-between;
-    padding: 8px 0;
+    padding: var(--padding-sm) 0;
 }
 
 .system-overview-flex > label {
