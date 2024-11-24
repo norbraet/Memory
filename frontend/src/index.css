@@ -21,6 +21,16 @@
   --page-padding: 1.5em;
 
   --scrollbar-color: #bdbdbd;
+
+  --slider-height: 12px;
+  --slider-thumb-size: 20px;
+
+  --slider-track-color: #E0E0E0;
+  --slider-track-hover: hsl(192, 33%, 33%);
+  --slider-thumb-color: hsl(192, 100%, 47%);
+  --slider-thumb-hover: #3700B3;
+  --slider-thumb-active: #018786;
+  --slider-progress-color: hsl(192, 33%, 53%);
 }
 
 /* Dark Mode Styles */
@@ -45,6 +55,13 @@ html[data-theme='dark'] {
   --error-color: #CF6679;
 
   --scrollbar-color: var(--secondary-button-bg);
+
+  --slider-track-color: #444444;
+  --slider-track-hover: #EFC3F5;
+  --slider-thumb-color: #BB86FC;
+  --slider-thumb-hover: hsl(297, 100%, 47%);
+  --slider-thumb-active: #03DAC5;
+  --slider-progress-color: hsl(297, 100%, 83%);
 }
 
 html {

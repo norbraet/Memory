@@ -14,7 +14,7 @@ const LogArea = ({ headingLevel: Heading = "h2", heading = "Logs" }) => {
   }, [logs])
 
   return (
-    <div>
+    <section>
       <Heading>
         { heading }
       </Heading>
@@ -37,7 +37,7 @@ const LogArea = ({ headingLevel: Heading = "h2", heading = "Logs" }) => {
         })}
         <div ref={logEndRef} />
       </div>
-    </div>
+    </section>
   )
 }
 

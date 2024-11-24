@@ -3,8 +3,8 @@ import React, { useContext } from 'react'
 import api from '../../services/api'
 import Button from '../../components/Button/Button'
 import LogContext from '../../context/LogContext'
-import SystemOverview from '../../features/SystemOverview/SystemOverview'
 import LogArea from '../../features/LogArea/LogArea'
+import SystemInput from '../../features/SystemInput/SystemInput'
 
 
 function App() {
@@ -23,15 +23,13 @@ function App() {
     }
 
   return (
-    <main>
-      <div className="container-center">
-        <h1>Dashboard</h1>
+    <main className="container-center">
+      <h1>Dashboard</h1>
 
-        {/* <SystemOverview headingLevel='h2' /> */}
-        <Button onClick={turnOff} label="LED Aus" />
-        <Button onClick={turnOn} label="LED An" />
-        <LogArea />
-      </div>
+      <SystemInput headingLevel='h2' heading='System Input'/>
+      <Button onClick={turnOff} label="LED Aus" />
+      <Button onClick={turnOn} label="LED An" />
+      <LogArea headingLevel='h2' heading='Logs' />
     </main>
   )
 }
