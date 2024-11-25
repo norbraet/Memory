@@ -17,10 +17,10 @@ RUN pip install -r /app/requirements.txt
 WORKDIR /app
 
 # Copy the entire application into the container
-COPY . /app
+COPY /src/ /app
 
 # Expose the port the app will run on
 EXPOSE 5000
 
 # Set the default command to run the app
-CMD ["python", "run.py"] 
+CMD ["python", "src/run.py"] 
