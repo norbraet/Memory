@@ -1,7 +1,12 @@
 from app import create_app
-from config.default import DEBUG, HOST, PORT 
+
 
 app = create_app()
 
 if __name__ == '__main__':
-    app.run(host=HOST, port=PORT, debug=DEBUG, use_reloader=False)
+    app.run(
+        host=app.config['HOST'], 
+        port=app.config['PORT'], 
+        debug=app.config['DEBUG'], 
+        use_reloader=app.config['USE_RELOADER']
+    )
