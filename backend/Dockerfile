@@ -1,21 +1,26 @@
 # Uses Python 3.9 Slim which do not include all standard Libraries. If any additional standard libraries are needed, they need to be installed separately
 FROM python:3.9-slim
 
-# Installs tools that is needed for building the packages
+# Installs tools that is needed for building the packages and compile pyhton dependecies
 RUN apt-get update && apt-get install -y \
     build-essential \
     python3-dev \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Libraries
+# Upgrade pip and install dependencies
 RUN pip install --upgrade pip
-RUN pip install flask \ 
-    flask-cors \ 
-    RPi.GPIO
+COPY requirements.txt /app/requirements.txt
+RUN pip install -r /app/requirements.txt
 
+# Set the working directory inside the container
 WORKDIR /app
 
-COPY src/ /app/src
+# Copy the entire application into the container
+COPY /src/ /app
 
-CMD ["python", "src/main.py"] 
+# Expose the port the app will run on
+EXPOSE 5000
+
+# Set the default command to run the app
+CMD ["python", "src/run.py"] 
