@@ -1,4 +1,7 @@
 flask
 flask-cors
+flask-socketio
 RPi.GPIO
 python-dotenv
+eventlet
+psutil
