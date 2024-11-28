@@ -5,14 +5,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
-    environment:
-      - LOG_LEVEL=Info
     volumes:
       - ./backend:/app
-    restart: 
-      always
     env_file:
       - .env
+    # restart: 
+    #   always // is good for production
+    
 
   frontend:
     build:
@@ -26,13 +25,9 @@ services:
     volumes:
       - ./frontend:/app
       - /app/node_modules
-    environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-      - WATCHPACK_POLLING=true
     env_file:
       - .env
     depends_on:
       - backend
-    restart: 
-      always
+    # restart: 
+    #   always // is good for production
