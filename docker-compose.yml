@@ -39,6 +39,8 @@ services:
       - raspberry-pi
     networks:
       - memory_network
+    cap_add:
+      - SYS_ADMIN
       
 
 

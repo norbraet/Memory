@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, jsonify, Response
 from app.services.gpio_service import turn_led_off, turn_led_on
 from app.utils.response_util import create_response
 
@@ -35,3 +35,13 @@ def led_off():
         return create_response("LED ist jetzt aus", "warning")
     except Exception as e:
         return create_response(f"Error: {str(e)}", "error", 500)
+    
+@main_routes.route('/capture', methods=['GET'])
+def capture_image():
+    try:
+        frame = camera_service.capture_frame()
+        # Encode image to JPEG
+        _, jpeg = cv2.imencode('.jpg', frame)
+        return Response(jpeg.tobytes(), mimetype='image/jpeg')
+    except RuntimeError as e:
+        return jsonify({'error': str(e)}), 500

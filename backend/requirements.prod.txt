@@ -2,3 +2,6 @@ flask
 flask-cors
 gpiod
 python-dotenv
+opencv-python
+dlib
+face-recognition

@@ -11,7 +11,9 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN if [ "${TARGETENV}" = "prod" ]; then \
-        apt-get update && apt-get install -y \
+        apt-get update && apt-get install -y \        
+        cmake \
+        python3-opencv \
         libgpiod2 \
         libgpiod-dev \
         libcamera-dev \
