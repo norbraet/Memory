@@ -12,14 +12,15 @@ RUN apt-get update && apt-get install -y \
 
 RUN if [ "${TARGETENV}" = "prod" ]; then \
         apt-get update && apt-get install -y \
-        python3-rpi.gpio \
+        libgpiod2 \
+        libgpiod-dev \
         libcamera-dev \
         && rm -rf /var/lib/apt/lists/*; \
     fi
 
 # Upgrade pip and install dependencies
 RUN pip install --upgrade pip
-COPY requirements.${TARGETENV}}.txt /app/requirements.txt
+COPY requirements.${TARGETENV}.txt /app/requirements.txt
 RUN pip install -r /app/requirements.txt
 
 # Set the working directory inside the container

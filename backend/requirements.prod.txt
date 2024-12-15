@@ -1,4 +1,4 @@
 flask
 flask-cors
-RPi.GPIO
+gpiod
 python-dotenv

@@ -9,4 +9,4 @@ class Config:
     PORT = os.getenv('BACKEND_PORT', 5000)
     USE_RELOADER = os.getenv('USE_RELOADER').upper() == 'TRUE'
     LOG_LEVEL = os.getenv('LOG_LEVEL', 'ERROR').upper()
-    MOCK = os.getenv('MOCK', 'False').upper() == 'TRUE'
+    TARGET = os.getenv('TARGET', 'dev')
