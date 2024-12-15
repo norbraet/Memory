@@ -1,6 +1,8 @@
 # Uses Python 3.9 Slim which do not include all standard Libraries. If any additional standard libraries are needed, they need to be installed separately
 FROM python:3.9-slim
 
+ARG TARGETENV=dev
+
 # Installs tools that is needed for building the packages and compile pyhton dependecies
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -8,9 +10,16 @@ RUN apt-get update && apt-get install -y \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
+RUN if [ "${TARGETENV}" = "prod" ]; then \
+        apt-get update && apt-get install -y \
+        python3-rpi.gpio \
+        libcamera-dev \
+        && rm -rf /var/lib/apt/lists/*; \
+    fi
+
 # Upgrade pip and install dependencies
 RUN pip install --upgrade pip
-COPY requirements.txt /app/requirements.txt
+COPY requirements.${TARGETENV}}.txt /app/requirements.txt
 RUN pip install -r /app/requirements.txt
 
 # Set the working directory inside the container

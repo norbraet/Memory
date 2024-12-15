@@ -8,11 +8,34 @@ services:
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
     environment:
-      - LOG_LEVEL=Info
+      - LOG_LEVEL=${LOG_LEVEL}
     volumes:
       - ./backend:/app
     env_file:
       - .env
+    profiles:
+      - non-raspberry-pi
+
+  backend_rpi:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      args:
+        TARGETENV: ${TARGETENV:-prod}
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL}
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env
+    devices:
+      - /dev/gpiomen:/dev/gpiomen
+      - /dev/video0:/dev/video0
+    profiles:
+      - raspberry-pi
+
 
   frontend:
     build:
@@ -27,9 +50,9 @@ services:
       - ./frontend:/app
       - /app/node_modules
     environment:
-      - NODE_ENV=development
-      - CHOKIDAR_USEPOLLING=true
-      - WATCHPACK_POLLING=true
+      - NODE_ENV=${NODE_ENV}
+      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING}
+      - WATCHPACK_POLLING=${WATCHPACK_POLLING}
     env_file:
       - .env
     depends_on:
