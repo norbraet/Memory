@@ -1,12 +1,19 @@
-try:
-    # checks if you have access to RPi.GPIO, which is available inside Raspberry PI
-    import RPi.GPIO as GPIO
-except:
-    # In case of exception, you are executing your script outside of Raspberry PI, so import Mock.GPIO
+import os
+from . import logger
+
+if os.getenv("MOCK_ENV", "false").lower() == "true":
+    logger.info("Mock environment detected, using mocked GPIO.")
     from mocks import GPIO as GPIO
+else:
+    try:
+        import RPi.GPIO as GPIO
+    except ImportError as e:
+        logger.error("Failed to import RPi.GPIO: %s", e)    
+        raise
+
 
 LED_PIN = 10
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)  
 GPIO.setup(LED_PIN, GPIO.OUT)
 
 def turn_led_on():
