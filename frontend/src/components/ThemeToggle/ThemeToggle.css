@@ -21,7 +21,7 @@
 .switch-wrap:hover {
   box-shadow: var(--shadow-heavy);
 }
-  
+
 .switch-wrap input {
   position: absolute;
   opacity: 0;
@@ -42,7 +42,9 @@
   background: var(--theme-toggle-thumb);
   grid-column: 2;
   box-shadow: var(--shadow-medium);
-  transition: background-color 0.2s, box-shadow 0.3 ease;
+  transition:
+    background-color 0.2s,
+    box-shadow 0.3 ease;
 }
 
 .switch-wrap input:checked + .switch {

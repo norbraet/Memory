@@ -4,7 +4,6 @@ Mock Library for RPi.GPIO
 Source: https://github.com/codenio/Mock.GPIO/blob/master/Mock/GPIO.py
 """
 
-import time
 import logging
 import os
 
