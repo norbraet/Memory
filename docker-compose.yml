@@ -3,14 +3,14 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+      args:
+        TARGETENV: ${TARGETENV:-dev}
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
     environment:
       - LOG_LEVEL=Info
     volumes:
       - ./backend:/app
-    restart: 
-      always
     env_file:
       - .env
 
@@ -34,5 +34,3 @@ services:
       - .env
     depends_on:
       - backend
-    restart: 
-      always
