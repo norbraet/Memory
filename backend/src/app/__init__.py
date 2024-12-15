@@ -1,4 +1,5 @@
-import os
+import logging
+from app.config import Config
 from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -9,13 +10,24 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
 
-    app.config['DEBUG'] = os.getenv('DEBUG') == 'True'
-    app.config['HOST'] = os.getenv('HOST')
-    app.config['PORT'] = os.getenv('BACKEND_PORT')
-    app.config['USE_RELOADER'] = os.getenv('USE_RELOADER') == 'True'
+    app.config.from_object(Config)
 
+    log_level = app.config['LOG_LEVEL']
+    config_logger(app, log_level)
 
     from app.routes import main_routes
     app.register_blueprint(main_routes)
 
     return app
+
+def config_logger(app, log_Level='ERROR'):
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(log_Level)
+    app.logger.setLevel(log_Level)
+
+    app.logger.propagate = False
+
+    formatter = logging.Formatter('[%(asctime)s] %(levelname)s in %(module)s: %(message)s')
+    console_handler.setFormatter(formatter)
+
+    app.logger.addHandler(console_handler)
