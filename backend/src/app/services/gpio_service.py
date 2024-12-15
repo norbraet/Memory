@@ -1,7 +1,9 @@
-import os
-from . import logger
+import logging
+from app.config import Config
 
-if os.getenv("MOCK_ENV", "false").lower() == "true":
+logger = logging.getLogger(__name__)
+
+if Config.MOCK:
     logger.info("Mock environment detected, using mocked GPIO.")
     from mocks import GPIO as GPIO
 else:
