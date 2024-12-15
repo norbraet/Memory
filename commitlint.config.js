@@ -3,7 +3,7 @@ module.exports = {
   rules: {
     'scope-empty': [2, 'never'],
     'scope-case': [2, 'always', ['lower-case']],
-    'scope-enum': [2, 'always', ['frontend', 'backend']],
+    'scope-enum': [2, 'always', ['frontend', 'backend', 'common']],
     'type-enum': [
       2,
       'always',
