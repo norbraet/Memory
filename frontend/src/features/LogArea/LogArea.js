@@ -6,8 +6,8 @@ import {ReactComponent as InfoLogo} from '../../assets/infoLogo.svg'
 import {ReactComponent as WarningLogo} from '../../assets/warningLogo.svg'
 
 const LogArea = ({ headingLevel: Heading = "h2", heading = "Logs" }) => {
-  const { logs } = useContext(LogContext)
-  const logAreaRef = useRef(null)
+  const { logs } = useContext(LogContext);
+  const logAreaRef = useRef(null);
 
   useEffect(() => {
     if (logAreaRef.current) {

@@ -7,11 +7,19 @@
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
     "prettier": "^3.4.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
+  },
+  "lint-staged": {
+    "frontend/src/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "keywords": [],
   "author": "",
