@@ -17,6 +17,13 @@ RUN if [ "${TARGETENV}" = "prod" ]; then \
         libgpiod2 \
         libgpiod-dev \
         libcamera-dev \
+        v4l-utils \
+        libopencv-dev \
+        libv4l-dev \
+        libcamera-tools \
+        libavcodec-dev \
+        libavformat-dev \
+        libswscale-dev \ 
         && rm -rf /var/lib/apt/lists/*; \
     fi
 

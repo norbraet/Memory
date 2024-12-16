@@ -36,7 +36,7 @@ def led_off():
     except Exception as e:
         return create_response(f"Error: {str(e)}", "error", 500)
     
-@main_routes.route('/capture', methods=['GET'])
+""" @main_routes.route('/capture', methods=['GET'])
 def capture_image():
     try:
         frame = camera_service.capture_frame()
@@ -44,4 +44,4 @@ def capture_image():
         _, jpeg = cv2.imencode('.jpg', frame)
         return Response(jpeg.tobytes(), mimetype='image/jpeg')
     except RuntimeError as e:
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error': str(e)}), 500 """

@@ -41,6 +41,8 @@ services:
       - memory_network
     cap_add:
       - SYS_ADMIN
+      - SYS_RAWIO
+    privileged: true
       
 
 

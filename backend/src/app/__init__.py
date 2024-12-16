@@ -19,12 +19,13 @@ def create_app():
     from app.routes import main_routes
     app.register_blueprint(main_routes)
 
-    camera_service = CameraService()
+    """ camera_service = CameraService()
+    camera_service.test_camera_feed() """
 
-    @app.teardown_appcontext
+    """ @app.teardown_appcontext
     def cleanup(exception=None):
         camera_service.release_camera()
-    
+     """
     return app
 
 def config_logger(app, log_Level='ERROR'):
